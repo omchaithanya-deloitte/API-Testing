@@ -36,11 +36,11 @@ public class putCallTest {
     @Test
     public void testGetCall(){
         File jsonFile = new File(path);
-        RestAssured.useRelaxedHTTPSValidation();
         given().
                 spec(requestSpecification).
                 body(jsonFile).
-                when().
+                
+        when().
                 put("/users");
     }
 
