@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="utils.Listener"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="C:/Users/omcv/IdeaProjects/RestAssuredMainAssignment/src/test/java/tests" parallel="true" thread-count="1">
+        <classes>
+        <class name="tests.CreateUserTest">
+            <methods><include name="createUser"/><include name="validateContentType"/><include name="validateUserDetails"/></methods></class>
+        <class name="tests.UserLoginTest">
+            <methods><include name="userLogin"/><include name="validateContentType"/></methods></class>
+        <class name="tests.AddTasksTest">
+            <methods><include name="addTasks"/><include name="validateContentType"/></methods></class>
+        <class name="tests.PaginationTest">
+            <methods><include name="paginationLimit2"/><include name="paginationLimit5"/><include name="paginationLimit10"/></methods></class>
+        <class name="tests.CreateUserWithSameDetailsTest">
+            <methods><include name="createUserWithSameDetails"/><include name="validateContentType"/><include name="validateError"/></methods></class>
+        <class name="tests.LoginWithNotRegisteredUserTest">
+            <methods><include name="userLoginOfNotRegistered"/><include name="validateContentType"/><include name="validateError"/></methods></class>
+        <class name="tests.TaskWithWrongBodyTest">
+            <methods><include name="addTasksWithWrongBody"/><include name="validateContentType"/><include name="validateError"/></methods></class>
+        </classes>
+    </test>
+</suite>
