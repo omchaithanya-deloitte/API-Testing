@@ -50,13 +50,13 @@ public class CreateUserWithSameDetailsTest {
     Response response;
     @Test
     public void createUserWithSameDetails() {
-
+        // add user details into a json object
         JSONObject bodyParameters = new JSONObject();
         bodyParameters.put("name", name);
         bodyParameters.put("email", email);
         bodyParameters.put("password", password);
         bodyParameters.put("age", age);
-
+        // trying to create  a user who already registered or exists
         response = given()
                 .baseUri(Baseuri)
                 .header("Content-Type", ContentType)
@@ -67,12 +67,12 @@ public class CreateUserWithSameDetailsTest {
     }
 
     @Test
-    public void validateContentType(){
+    public void validateContentType(){    // verifying content type
         assertThat(ContentType, equalTo("application/json"));
     }
 
     @Test
-    public void validateError(){
+    public void validateError(){    // verifying error message
         String jsonString = response.getBody().asString();
         //System.out.println(jsonString);
         assertThat(jsonString, is(equalTo("\"E11000 duplicate key error collection: todo-list.users index: email_1 dup key: { email: \\\""+email+"\\\" }\"")));

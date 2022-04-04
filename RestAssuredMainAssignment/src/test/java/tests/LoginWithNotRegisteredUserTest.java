@@ -37,11 +37,11 @@ public class LoginWithNotRegisteredUserTest {
     Response response;
     @Test
     public void userLoginOfNotRegistered() throws IOException {
-
+        // add email and password into a json object
         JSONObject bodyParameters = new JSONObject();
         bodyParameters.put("password", "pass123");
         bodyParameters.put("email", "omcv@123");
-
+        // trying to login with wrong credentials
         RestAssured.baseURI = Baseuri;
 
         response = given().
@@ -61,7 +61,7 @@ public class LoginWithNotRegisteredUserTest {
     }
 
     @Test
-    public void validateError(){
+    public void validateError(){    // validating the error message
         String jsonString = response.getBody().asString();
         //System.out.println(jsonString);
         assertThat(jsonString, is(equalTo("\"Unable to login\"")));

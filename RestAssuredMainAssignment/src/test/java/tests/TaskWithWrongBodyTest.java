@@ -45,7 +45,7 @@ public class TaskWithWrongBodyTest {
     Response response;
     @Test
     public void addTasksWithWrongBody(){
-
+                    // add task with wrong body and validate the error message
                     JSONObject bodyParameters = new JSONObject();
                     bodyParameters.put("descriptions", "wrong body");
                     //System.out.println(bodyParameters);
@@ -70,7 +70,7 @@ public class TaskWithWrongBodyTest {
     }
 
     @Test
-    public void validateError(){
+    public void validateError(){    // validating the error message
         String jsonString = response.getBody().asString();
         //System.out.println(jsonString);
         assertThat(jsonString, is(equalTo("\"Task validation failed: description: Path `description` is required.\"")));
